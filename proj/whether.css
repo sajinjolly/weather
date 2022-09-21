@@ -1,0 +1,53 @@
+html{
+    background-color: rgb(158, 154, 154);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url(./image/11machin-illo-superJumbo-v3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+body{
+    width: 35%;
+    height: 80vh;
+    background: linear-gradient(#01ccf077, #b2e0ee4f);;
+    background-image: url(./image/weather-icons.webp);
+    border-radius: 20px;
+    box-shadow:  1px 1px 10px rgb(63, 219, 123);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+@media (max-width: 700px){
+    body{
+        width: 100%;
+        height: 100vh;
+    }
+
+}
+.search{
+    width: 100%;
+    height:10vh ;
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+svg{
+    width: 15px;
+    height: 15px;
+    color: rgb(56, 55, 55);
+}
+button{
+    width: 190px;
+    height: 30px;
+    border-radius: 100%;
+    border-style: none;
+    box-shadow: 0px 0px 5px 2px rgb(150, 147, 147);
+    margin-right: 10px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="./whether.css">
+</head>
+<body>
+
+    <head>
+<h1>weather</h1>
+        <div class="search-center w-50 bg-light" >
+            <input type="text" id="searchdist"><br>
+            <button class="btn btn-info" type="button" onclick="search ()">Search</button>
+
+
+        </div>
+
+    </head>
+    <div class="data" id="result">
+
+      
+
+    </div>
+
+    
+    
+</body>
+<script>
+    function search(){
+       dist=searchdist.value
+       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${dist}&appid=5b4bee0ba241d092159faf007e166080`)
+       .then(res=>res.json())
+       .then(data=>displaydata(data))
+
+    }
+    function displaydata(distDetails){
+        cname=searchdist.value
+        temperature=distDetails.main.temp
+       weather=distDetails.weather[0].description
+       wind=distDetails.wind.speed
+        lattitude= distDetails.coord.lat
+        longitude= distDetails.coord.long
+        
+
+        htmldata=`  <p>city name: <span id="cityname"${cname}</span></p>
+        <p>Temperature: <span id="temp">${temperature}</span></p>
+        <p>weather type: <span id="weather">${weather}</span></p>
+        <p>wind speed: <span id="wind">${wind}</span></p>
+        <p>lattitude: <span id="latt">${lattitude}</span></p>
+        <p>longitude: <span id="long">${longitude}</span></p>`
+
+
+result.innerHTML=htmldata
+
+// cityname.value = `${cname}`
+// temp.innerHTML = temperature
+// weather.innerHTML = weather
+// wind.innerHTML = wind
+// latt.innerHTML = lattitude
+// long.innerHTML = longitude
+    }
+
+</script>
+</html>
